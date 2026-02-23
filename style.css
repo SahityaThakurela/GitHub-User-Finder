@@ -1,0 +1,232 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fa7777b5 0%, #ff6b0061 100%);
+    color: #ffffffd6;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+
+}
+
+.footer {
+    width: auto;
+    background-color: rgb(196 59 8 / 41%);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    margin-bottom: 40px;
+    padding: 10px 80px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.footer,
+.footer-search,
+.profile,
+.details_count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer input {
+    border: 0;
+    padding: 12px 16px;
+    outline: none;
+    font-size: 15px;
+    flex-grow: 1;
+    background: #ffebd0;
+    color: rgb(101 101 101);
+    width: 30em;
+    border-radius: 12px;
+}
+
+.footer button {
+    border: 0;
+    padding: 12px;
+    outline: none;
+    font-size: 15px;
+    color: white;
+    background-color: #a53232c2;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.container {
+    max-width: 1000px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.profile_info,
+.repo-card-view,
+.repositories,
+.repo-card {
+    background-color: rgb(77 58 58 / 24%);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-radius: 16px;
+}
+
+
+
+
+
+.profile_info img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid rgb(255 255 255);
+    box-shadow: 0 0px 200px 0 white;
+    flex-shrink: 0;
+
+}
+
+.profile {
+    padding: 30px;
+    gap: 80px;
+    justify-content: flex-start;
+}
+
+.profile-details h1,
+.profile-details div,
+.profile-details span {
+    padding: 10px 20px;
+}
+
+.repositories {
+    margin-top: 50px;
+    padding: 20px 20px;
+    width: auto;
+    color: #310128a8;
+}
+
+/* ye dynamic grid add krta h */
+.repo-cards {
+    display: grid;
+    justify-content: center;
+    width: auto;
+    padding-top: 50px;
+    max-width: 1042px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    align-items: center;
+}
+
+.repo-card {
+    min-height: 180px;
+    overflow: hidden;
+    width: 250px;
+    max-width: 200px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.repo-card:hover {
+    background-color: rgba(102, 102, 102, 0.25);
+}
+
+.repo-meta {
+    position: absolute;
+    bottom: 12px;
+    margin-left: 46px;
+}
+
+
+/* card in details */
+.repo-in-details {
+    background-color: rgb(255 6 253 / 15%); 
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    backdrop-filter: (8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.repo-detail-content {
+    font-family: "Inter", sans-serif;
+    background-color: rgb(65 45 67 / 32%);
+    color: #ffffff;
+    height: 20em;
+    width: 30em;
+    border-radius: 23px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+.closebtn {
+    height: 40px;
+    width: 101px;
+    background-color: #ab41b4d1;
+    color: white;
+    border: 0;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.viewgithub {
+    height: 40px;
+    width: 101px;
+    background-color: #6ea96c;
+    color: white;
+    border: 0;
+    border-radius: 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.viewgithub a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* phone ke liye responsive m ye */
+@media (max-width: 768px) {
+
+    .footer,
+    .footer-search,
+    .profile {
+        flex-direction: column;
+    }
+
+    .container {
+        margin: 0 20px;
+    }
+
+    .footer h1 {
+        font-size: 32px;
+        width: 216px;
+    }
+
+    .footer input {
+        width: 12em;
+    }
+
+    .repositories {
+        margin-top: 30px;
+    }
+
+    .repo-card {
+        text-align: center;
+    }
+    
+}

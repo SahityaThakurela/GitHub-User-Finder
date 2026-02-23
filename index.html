@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub-Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- footer h ye  -->
+    <footer class="footer">
+        <h1>GitHub Finder</h1>
+        <div class="footer-search">
+            <input type="text" id="Username-input" placeholder="Enter the Github Username....">
+            <button id="Searchbtn">Search</button>
+        </div>
+    </footer>
+    
+    <!-- container containing profile details -->
+    <div class="container profile_info">
+        <div class="profile">
+        </div>
+    </div>
+
+    <!-- just a container -->
+    <div class="container repositories">
+        <h2>Repositories</h2>
+    </div>
+
+    <!-- repo ki grid h iske ander -->
+    <div id="repo-cards" class="container repo-cards"></div>
+
+    <!-- card h jo pop up ho ga after click of repo -->
+    <div class="repo-in-details">
+        <div class="repo-detail-content">
+            <div style="display: flex;">
+                <h2></h2>
+                <span class="closebtn"> <button>Close</button></span>
+            </div>
+            <div class="repo-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
