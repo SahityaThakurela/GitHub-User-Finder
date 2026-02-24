@@ -17,17 +17,35 @@
             <button id="Searchbtn">Search</button>
         </div>
     </footer>
-    
+    <!-- loading-screen show -->
+    <div id="loading-screen" style="display: none; text-align: center; padding: 20px;">
+        <h2 style="color: #310128a8;">Fetching data... please wait :-)) </h2>
+    </div>
+
     <!-- container containing profile details -->
     <div class="container profile_info">
         <div class="profile">
         </div>
     </div>
 
-    <!-- just a container -->
+
+    <!--  -->
     <div class="container repositories">
         <h2>Repositories</h2>
+        <!-- <input type="text" class="searchrepo" placeholder="Filter here..."> -->
+
+        <!-- reposearch and sort krne ke liye  -->
+        <div class="repo-controls" style="display: none;">
+            <input type="text" id="repo-search" placeholder="Search repos...">
+            <select id="repo-sort" class="repo-sort">
+                <option value="default">Sort by...</option>
+                <option value="stars">Stars (High to Low)</option>
+                <option value="forks">Forks (High to Low)</option>
+            </select>
+        </div>
     </div>
+
+
 
     <!-- repo ki grid h iske ander -->
     <div id="repo-cards" class="container repo-cards"></div>

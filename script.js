@@ -34,7 +34,11 @@ const UI = {
         usernameinput: document.getElementById("Username-input"),
         repocards: document.getElementById("repo-cards"),
         repocard: document.getElementsByClassName("repo-card"),
-        repoindetails: document.querySelector(".repo-in-details")
+        repoindetails: document.querySelector(".repo-in-details"),
+        repoSearch: document.getElementById("repo-search"), 
+        repoSort: document.getElementById("repo-sort"),     
+        repoControls: document.querySelector(".repo-controls"),
+        loader: document.getElementById("loading-screen") 
     },
 
     //ye function data naam ki json leraha h and profile m details dikha raha
@@ -55,7 +59,7 @@ const UI = {
             </div>`
     },
 
-    //ye fnc same as last one .json le raha and card ki details show kr raha
+    //data ki jagah processedRepos array aajayegi every time 
     DisplayCard(data) {
         //ye ko past cards details ko delete kr deta h
         this.assivalue.repocards.innerHTML = ` `
@@ -105,12 +109,57 @@ const UI = {
         })
     }
 
+
+    
+
+}
+
+const AppState = {
+    allRepos: [],
+
+    // ye func search and sort krta hai 
+    updateDisplay() {
+        // basic initialization kr diya
+        const searchTerm = UI.assivalue.repoSearch.value.toLowerCase(); 
+        const sortBy = UI.assivalue.repoSort.value;
+
+        //filter ka use kr ke processedRepos ke ander matched hui array aa gayi h
+        let processedRepos = this.allRepos.filter(repo =>   //filter formate  => array.filter(fnc)
+            repo.name.toLowerCase().includes(searchTerm)    // by using "includes"
+        );
+
+        //ab jo new processdrepo h usko sort kr diya h 
+        //intrusting way bydefault sort means alphabaticaly means using strings but we want to do on numbers 
+        //so we use the a,b concept like 
+        //for asending if a-b +ve then a->b     vice-versa
+        //for desending if b-a +ve then b->a    vice-versa
+        if (sortBy === 'stars') {
+            processedRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+        } else if (sortBy === 'forks') {
+            processedRepos.sort((a, b) => b.forks_count - a.forks_count);
+        }
+
+        // 4. Send the final processed array to your existing DisplayCard function
+        UI.DisplayCard(processedRepos);
+    }
 }
 
 
 
 
 async function main() {
+
+
+    // ye har letter ke liye chalta hai in input tag
+    UI.assivalue.repoSearch.addEventListener('input', () => {
+        AppState.updateDisplay();
+    });
+
+    // sorting ke liye
+    UI.assivalue.repoSort.addEventListener('change', () => {
+        AppState.updateDisplay();
+    });
+
 
     //local host m save krne ke liye
     UI.assivalue.Searchbtn.addEventListener('click', async () => {
@@ -120,29 +169,50 @@ async function main() {
         if (!username) {
             alert("Please enter username");
         }
-        //ye try catch show kr dega error ko alert m hi 
+        
         try {
+            //loader screen show krega
+            UI.assivalue.loader.style.display = "flex"; 
             document.querySelector(".profile_info").style.display = "block";
-            document.querySelector(".repositories").style.display = "block";
+            document.querySelector(".repositories").style.display = "flex";
+            UI.assivalue.repoControls.style.display = "flex"; 
+
+            // Reset inputs nahi searchs ke liye
+            UI.assivalue.repoSearch.value = "";
+            UI.assivalue.repoSort.value = "default";
+
             //excess api1
             const profile = await GitApi.UserProfile(username);
             UI.ProfileData(profile);
             //excess api2 (vese same si hi hain dono 🥲)
             const repodetails = await GitApi.UserRepo(username);
-            UI.DisplayCard(repodetails);
 
-            // Save the successfully searched user
-            localStorage.setItem("lastGitHubUser", username);
+            // allrepos array ke ander api json insert kr di aur func call kiya
+            AppState.allRepos = repodetails; 
+            AppState.updateDisplay();
+
+            // loader ko hide kr dega
+            UI.assivalue.loader.style.display = "none"; 
+            document.querySelector(".profile_info").style.display = "block";
+            document.querySelector(".repositories").style.display = "flex";
+            UI.assivalue.repoControls.style.display = "flex"; // Show controls
+
+
+            // saving last user ek id dekr localstorage main hi setItem ka use krke
+            localStorage.setItem("gitkey", username);
             
         } catch (error) {
+            // error ane pr repo hide kr dega
+            UI.assivalue.loader.style.display = "none";
+
             alert(error.message);
         }
     });
 
-    //last search on page load
-    const lastSearchedUser = localStorage.getItem("lastGitHubUser");
+    //last search ko check kr rahe "getItem" ka use kr ke
+    const lastSearchedUser = localStorage.getItem("gitkey");
 
-    //If a saved user exists, put it in the input and click the button automatically
+    //agar last search sucessful hui hogi to input tag m aa jayega aur search ho jayega
     if (lastSearchedUser) {
         UI.assivalue.usernameinput.value = lastSearchedUser;
         UI.assivalue.Searchbtn.click(); 
