@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #fa7777b5 0%, #ff6b0061 100%);
+        background: #63f00c82;
     color: #ffffffd6;
     line-height: 1.6;
     min-height: 100vh;
@@ -16,7 +16,7 @@ body {
 
 .footer {
     width: auto;
-    background-color: rgb(196 59 8 / 41%);
+    background-color: rgb(7 104 63 / 41%);
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     margin-bottom: 40px;
@@ -54,7 +54,7 @@ body {
     outline: none;
     font-size: 15px;
     color: white;
-    background-color: #a53232c2;
+        background-color: #074628c2;
     border-radius: 12px;
     font-weight: bold;
     cursor: pointer;

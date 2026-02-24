@@ -47,7 +47,7 @@ const UI = {
         <div class="profile">
                 <img src="${data.avatar_url}" alt="">
                 <div>
-                    <h1 style="color:#310128a8;">${data.name}</h1> <br>
+                    <h1 style="color:#0d1b14a8;">${data.name}</h1> <br>
                     <div>@ ${data.login}</div> <br>
                     <div>${data.bio}</div> <br>
                     <div class="details_count">
