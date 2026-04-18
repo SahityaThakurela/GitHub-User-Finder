@@ -3,8 +3,17 @@
 
 Hi, I'm Sahitya. I am a first-year Computer Science student with a strong passion for software development and problem-solving
 
+## Project Info
+[![GitHub stars](https://img.shields.io/github/stars/SahityaThakurela/GitHub-User-Finder.svg?style=social&label=Star)](https://github.com/SahityaThakurela/GitHub-User-Finder/stargazers)
+[![GitHub watchers](https://img.shields.io/github/watchers/SahityaThakurela/GitHub-User-Finder.svg?style=social&label=Watch)](https://github.com/SahityaThakurela/GitHub-User-Finder/watchers)
+##
+
 ## Contact Me
-<p><a href="https://www.linkedin.com/in/sahitya-thakurela-9b6b4b368/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a> </p>
+<span><a href="https://www.linkedin.com/in/sahitya-thakurela-9b6b4b368/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:thakurela.sahitya@gmail.com) 
+
+</span>
+
 
 ## Skills
 
@@ -14,7 +23,7 @@ Hi, I'm Sahitya. I am a first-year Computer Science student with a strong passio
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="git" width="40" height="40"/>&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github" width="40" height="40"/>&nbsp;
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="vercel" width="40" height="40"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="vercel" width="40" height="40"/>
 </p>
 
 ## Projects
